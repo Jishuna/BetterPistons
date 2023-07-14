@@ -19,7 +19,6 @@ dependencies {
     implementation (group: 'me.jishuna', name: 'jishlib', version: '1.1.0-SNAPSHOT')
     implementation 'net.bytebuddy:byte-buddy-agent:1.14.5'
     implementation 'org.ow2.asm:asm:9.5'
-    implementation 'org.ow2.asm:asm-util:9.5'
     bukkitLibrary 'net.kyori:adventure-api:4.14.0'
     bukkitLibrary 'net.kyori:adventure-platform-bukkit:4.2.0'
     bukkitLibrary 'net.kyori:adventure-text-minimessage:4.12.0'
