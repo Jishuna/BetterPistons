@@ -1,0 +1,41 @@
+plugins {
+    id 'java'
+    id 'net.minecrell.plugin-yml.bukkit' version '0.5.3'
+}
+
+configurations.all {
+    resolutionStrategy.cacheChangingModulesFor 0, 'seconds'
+}
+
+repositories {
+    mavenCentral()
+    maven { url = 'https://repo.papermc.io/repository/maven-public/' }
+    maven { url 'https://repo.codemc.io/repository/maven-snapshots/' }
+    mavenLocal()
+}
+
+dependencies {
+    compileOnly('org.spigotmc:spigot-api:1.19.4-R0.1-SNAPSHOT')
+    implementation (group: 'me.jishuna', name: 'jishlib', version: '1.1.0-SNAPSHOT')
+    implementation 'net.bytebuddy:byte-buddy-agent:1.14.5'
+    implementation 'org.ow2.asm:asm:9.5'
+    implementation 'org.ow2.asm:asm-util:9.5'
+    bukkitLibrary 'net.kyori:adventure-api:4.14.0'
+    bukkitLibrary 'net.kyori:adventure-platform-bukkit:4.2.0'
+    bukkitLibrary 'net.kyori:adventure-text-minimessage:4.12.0'
+}
+
+bukkit {
+    name = 'BetterPistons'
+    version = rootProject.version
+    main = 'me.jishuna.betterpistons.BetterPistons'
+    apiVersion = '1.19'
+    load = 'STARTUP'
+
+    commands {
+        betterpistons {
+            description = 'Main plugin command'
+            aliases = ['bpist']
+        }
+    }
+}

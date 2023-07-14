@@ -1,0 +1,12 @@
+plugins {
+    id 'java'
+    id 'io.papermc.paperweight.userdev' version '1.5.4'
+}
+
+dependencies {
+    implementation project(':betterpistons-core')
+    paperweightDevelopmentBundle("io.papermc.paper:dev-bundle:1.20-R0.1-SNAPSHOT")
+    compileOnly 'net.bytebuddy:byte-buddy-agent:1.14.5'
+    compileOnly 'org.ow2.asm:asm:9.5'
+    compileOnly 'org.ow2.asm:asm-util:9.5'
+}

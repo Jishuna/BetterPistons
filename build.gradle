@@ -1,0 +1,42 @@
+plugins {
+    id 'eclipse'
+    id 'java'
+    id "com.github.johnrengelman.shadow" version "7.1.2"
+}
+
+jar.enabled = false
+
+repositories {
+    mavenCentral()
+    maven { url = 'https://repo.papermc.io/repository/maven-public/' }
+    maven { url = 'https://repo.codemc.io/repository/maven-snapshots/' }
+    mavenLocal()
+}
+
+dependencies {
+    implementation project(':betterpistons-core')
+    implementation project(path: ':betterpistons-v1_20_R1', configuration: 'reobf')
+}
+
+shadowJar {
+    archiveClassifier.set('')
+    archiveVersion.set('')
+
+    relocate 'me.jishuna.jishlib', 'me.jishuna.betterpistons.libs.jishlib'
+
+    minimize()
+}
+
+task copyJar(type: Copy) {
+    def target = System.getenv("plugin-dir")
+
+    if (target != null) {
+        from shadowJar
+        into file(target)
+    }
+}
+
+build {
+    dependsOn shadowJar
+    finalizedBy copyJar
+}

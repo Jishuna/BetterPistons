@@ -1,0 +1,6 @@
+commands:
+  reload:
+    success: '<dark_green><bold>[<green>!<dark_green>] </bold><green>Reload complete.'
+
+  no-permission: '<dark_red><bold>[<red>!<dark_red>] </bold><red>You do not have permission to use this command.'
+  usage: '<dark_red><bold>[<red>!<dark_red>] </bold><red>Invalid argument: <gray>{0}. <red>Valid arguments are: <gray>{1}.'
